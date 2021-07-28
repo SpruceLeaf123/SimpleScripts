@@ -1,7 +1,7 @@
 #!/bin/bash
 
-
-# Requires gnome-screenshot. Allows the user to draw the area on the screen and take its screenshot. The screenshot then gets saves as a PNG file into the folder "Drop" in the Pictures directory in the user's home directory. The file name contains the moment the screenshot was taken.
+# Allows the user to draw the area on the screen and take its screenshot. The screenshot then gets saved as a PNG file into the folder "Drop" in the Pictures directory in the user's home directory. The file name contains the moment the screenshot was taken.
+# Requires gnome-screenshot.
 
 data=$(moment)
 person=$(whoami)
