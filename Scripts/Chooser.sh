@@ -4,7 +4,7 @@
 # Requires Firefox and dmenu.
 
 person=$(whoami)
-chosen=$(grep "Name\=" /home/$person/.mozilla/firefox/profiles.ini | awk -F"\=" '{print $2}' | sort | dmenu -i -fn Monospoace-18 -p "Firefox profile")
+chosen=$(grep "Name\=" /home/$person/.mozilla/firefox/profiles.ini | awk -F"\=" '{print $2}' | sort | dmenu -i -fn Monospoace-18 -p "🌍 Internet")
 if [ $chosen = ""]
 then
 	echo ""
