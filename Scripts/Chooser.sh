@@ -1,13 +1,21 @@
 #!/bin/bash
 
-# Imports a list of Firefox profiles from profiles.ini and draws a dmenu on the screen, allowing the user to choose one of them and run Firefox with them.
+# Imports a list of Firefox profiles from profiles.ini and draws a dmenu on the screen, allowing the user to choose one of them. After that choice has been made, Firefox with the seletected profile is being started.
 # Requires Firefox and dmenu.
 
 person=$(whoami)
-chosen=$(grep "Name\=" /home/$person/.mozilla/firefox/profiles.ini | awk -F"\=" '{print $2}' | sort | dmenu -i -fn Monospoace-18 -p "🌍 Internet")
-if [ $chosen = ""]
+all=$(grep "Name\=" /home/$person/.mozilla/firefox/profiles.ini | awk -F"\=" '{print $2}' | sort)
+chosen=$( echo "$all" | dmenu -i -fn -18 -p "🌍 Internet")
+if [[ $chosen = "" ]]
 then
-	echo ""
+	notify-send -t 3000 "No profile selected."
 else
-	firefox -p "$chosen"
+	correct=$( echo "$all" | grep "$chosen" )
+	if [[ $correct = "" ]]
+	then
+		notify-send -t 3000 "This profile apparently does not exist."
+	else
+		notify-send -t 3000 "Selected profile: $chosen"
+		firefox -p "$chosen"
+	fi
 fi
