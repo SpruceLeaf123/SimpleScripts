@@ -10,7 +10,7 @@ if [[ $chosen = "" ]]
 then
 	notify-send -t 3000 "No profile selected."
 else
-	correct=$( echo "$all" | grep "$chosen" )
+	correct=$( echo "$all" | grep -x "$chosen" )
 	if [[ $correct = "" ]]
 	then
 		notify-send -t 3000 "This profile apparently does not exist."
