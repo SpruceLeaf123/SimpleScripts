@@ -5,7 +5,7 @@
 
 person=$(whoami)
 all=$(grep "Name\=" /home/$person/.mozilla/firefox/profiles.ini | awk -F"\=" '{print $2}' | sort)
-chosen=$( echo "$all" | dmenu -i -fn -18 -p "🌍 Internet")
+chosen=$( echo "$all" | dmenu -l 30 -i -fn -18 -p "🌍 Internet" )
 if [[ $chosen = "" ]]
 then
 	notify-send -t 3000 "No profile selected."
