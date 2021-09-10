@@ -4,6 +4,5 @@
 # Requires Scrot.
 
 moment=$(date +"%Y.%m.%d %H:%M:%S %Z - %A")
-person=$(whoami)
-scrot "/home/$person/Pictures/Drop/$moment.png"
+scrot "$HOME/Pictures/Drop/$moment.png"
 notify-send -t 1000 "Screenshot"
