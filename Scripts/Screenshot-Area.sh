@@ -4,6 +4,5 @@
 # Requires gnome-screenshot.
 
 moment=$(date +"%Y.%m.%d %H:%M:%S %Z - %A")
-person=$(whoami)
-gnome-screenshot -a -f "/home/$person/Pictures/Drop/$moment.png"
+gnome-screenshot -a -f "$HOME/Pictures/Drop/$moment.png"
 notify-send -t 1000 "Screenshot"
