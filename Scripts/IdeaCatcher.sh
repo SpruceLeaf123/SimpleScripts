@@ -5,4 +5,4 @@
 
 moment=$(date)
 idea=$(zenity --title "Enter Idea" --entry)
-echo "$moment $idea" >> ~/QuickIdeas
+echo "$moment $idea" >> $HOME/QuickIdeas
