@@ -4,7 +4,7 @@
 # Requires Firefox, notify-send and dmenu.
 
 person=$(whoami)
-all=$(grep "Name\=" $HOME/.mozilla/firefox/profiles.ini | awk -F"\=" '{print $2}' | sort)
+all=$(grep "^Name\=" $HOME/.mozilla/firefox/profiles.ini | awk -F"\=" '{print $2}' | sort)
 chosen=$( echo "$all" | dmenu -l 30 -i -fn -18 -p "🌍 Internet" )
 if [[ $chosen = "" ]]
 then
