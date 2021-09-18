@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Imports a list of Firefox profiles from profiles.ini and draws a dmenu on the screen, allowing the user to choose one of them. After that choice has been made, Firefox with the seletected profile is being started.
+# Imports a list of Firefox profiles from profiles.ini and draws a dmenu on the screen, allowing the user to choose one of them. After that choice has been made, Firefox with the seletected profile is being started. This script might not work correctly under certain conditions, like for example if one of the profiles contains the following character: "=".
 # Requires Firefox, notify-send and dmenu.
 
 person=$(whoami)
