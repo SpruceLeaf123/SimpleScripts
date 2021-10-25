@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Imports a list of Firefox profiles from profiles.ini and draws a dmenu on the screen, allowing the user to choose one of them. After that choice has been made, Firefox with the seletected profile is being started. This script might not work correctly under certain conditions, like for example if one of the profiles contains the following character: "=".
+# Imports a list of Firefox profiles from profiles.ini and draws a dmenu on the screen, allowing the user to choose one of them. After that choice has been made, Firefox with the seletected profile is being started.
 # Requires Firefox, notify-send and dmenu.
 
 person=$(whoami)
-all=$(grep "^Name\=" $HOME/.mozilla/firefox/profiles.ini | awk -F"\=" '{print $2}' | sort)
+all=$(grep "^Name\=" $HOME/.mozilla/firefox/profiles.ini | cut -c 6- | sort)
 chosen=$( echo "$all" | dmenu -l 30 -i -fn -18 -p "🌍 Internet" )
 if [[ $chosen = "" ]]
 then
