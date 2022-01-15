@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# Takes a screenshot of one monitor (probably the main one) and saves it as PNG file into the folder "Drop" in the Pictures directory in the user's home directory (if the directory does not exist, the screenshot might not be saved). The user may change the directory in which the screenshot is saved by editing the "location" variable. The file name contains the moment the screenshot was taken.
-# Requires Scrot.
+# Probably takes a screenshot of all monitors and saves it as PNG file. Please change the variable "location" to change the place where the screenshots must be saved. The file name contains the moment the screenshot was taken.
+# Requires maim.
 
-location="$HOME/Pictures/Drop"
-
-moment=$(date +"%Y.%m.%d %H:%M:%S %Z - %A")
-scrot "$location/$moment.png"
-notify-send -t 1000 "Screenshot"
+location="$HOME/Pictures/Drop/"
+if [[ -d "$location" ]]
+then
+	maim "$location/$(date +"%Y.%m.%d %H:%M:%S %Z - %A").png"
+	notify-send -t 1000 "Screenshot probably successful."
+else
+	notify-send -t 1000 "Directory not found."
+fi
