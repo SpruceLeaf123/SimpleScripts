@@ -6,7 +6,7 @@
 location="$HOME/Pictures/Drop/"
 if [[ -d "$location" ]]
 then
-	maim -s "$location/$(date +"%Y.%m.%d %H:%M:%S %Z - %A").png"
+	maim -su "$location/$(date +"%Y.%m.%d %H:%M:%S %Z - %A").png"
 	notify-send -t 1000 "Screenshot probably successful."
 else
 	notify-send -t 1000 "Directory not found."
